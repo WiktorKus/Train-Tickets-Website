@@ -1,4 +1,4 @@
-package com.example.trainticketsales.rest;
+package com.example.trainticketsales.controller;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
