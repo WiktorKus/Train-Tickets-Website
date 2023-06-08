@@ -1,0 +1,30 @@
+  <div class="container">
+    <div class="logo">
+      <div>
+        <div class="logo-title">Railway</div>
+        <div class="logo-subtitle">Fast and cheap</div>
+      </div>
+      <img src="../../../../assets/loginRegisterLogo.png" class="train-logo" />
+    </div>
+    <div class="login-container">
+      <form [formGroup]="registerForm" class="login" (ngSubmit)="registerUser()">
+        <label>First name</label>
+        <input formControlName="firstname" name="firstname" type="text" placeholder="Jan" required>
+        <div *ngIf="registerForm.get('firstname')?.invalid && registerForm.get('firstname')?.touched" class="error-message text-danger">The field is required</div>
+        <label>Last name</label>
+        <input formControlName="lastname" name="lastname" type="text" placeholder="Kowalski" required>
+        <div *ngIf="registerForm.get('lastname')?.invalid && registerForm.get('lastname')?.touched" class="error-message text-danger">The field is required</div>
+        <label>Username</label>
+        <input formControlName="email" name="email" type="text" placeholder="jan.kowalski@gmail.com" required>
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error-message text-danger">The field is required</div>
+        <label>Password</label>
+        <input formControlName="password" name="password" type="password" placeholder="**********" required>
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error-message text-danger">The field is required</div>
+        <label>Confirm password</label>
+        <input formControlName="confirmPassword" name="confirmPassword" type="password" placeholder="**********" required>
+        <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched" class="error-message text-danger">The field is required</div>
+        <div *ngIf="registerForm.hasError('passwordMismatch')" class="error-message text-danger">Passwords are different</div>
+        <button class="btnSignIn">REGISTER</button>
+      </form>
+    </div>
+  </div>
