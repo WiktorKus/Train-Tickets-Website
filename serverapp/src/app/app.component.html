@@ -4,3 +4,9 @@
   </div>
     <app-login></app-login>
 </ng-container>
+
+<ng-container *ngIf="authService.isAuthenticated()">
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</ng-container>

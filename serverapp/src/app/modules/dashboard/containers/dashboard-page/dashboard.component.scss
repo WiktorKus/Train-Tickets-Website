@@ -1,0 +1,160 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(180deg, #234AB5 0%, #000000 100%);
+  position: relative;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 400px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.train-logo {
+  width: 300px;
+  height: auto;
+  padding-right: 100px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 400px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button[type="submit"] {
+  width: 100%;
+}
+
+.mat-datepicker-toggle {
+  color: #FFFFFF;
+}
+
+.mat-datepicker-toggle:hover {
+  color: #FFFF00;
+}
+
+.mat-form-field-label {
+  color: #FFFFFF;
+}
+
+.mat-form-field-underline {
+  background-color: #FFFFFF;
+}
+
+.mat-input-element {
+  color: #FFFFFF;
+}
+
+.mat-input-element::placeholder {
+  color: #D7D7D7;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+    justify-content: flex-start;
+  color: white;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox-label span {
+  font-size: 16px;
+}
+
+.top-right-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.help-button,
+.logout-button {
+  background-color: Grey;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-le50ft: 10px;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 100px;
+}
+
+.help-button:hover,
+.logout-button:hover {
+  background-color: #000000;
+}
+
+.help-button:focus,
+.logout-button:focus {
+  outline: none;
+}
+
+.image-small {
+  width: 41px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.bottom-right-logo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.company-logo {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.company-name {
+  color: #FFFFFF;
+  font-size: 25px;
+}
+
+
+
+
+

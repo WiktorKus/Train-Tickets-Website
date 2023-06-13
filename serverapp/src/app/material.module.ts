@@ -20,7 +20,7 @@ const MODULES = [
   MatToolbarModule, MatTableModule, MatDialogModule,
   MatFormFieldModule, MatInputModule, MatSnackBarModule,
   MatFormFieldModule, MatFormFieldModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule,
-  MatTabsModule, MatCardModule,
+  MatTabsModule, MatCardModule
 ];
 
 @NgModule({

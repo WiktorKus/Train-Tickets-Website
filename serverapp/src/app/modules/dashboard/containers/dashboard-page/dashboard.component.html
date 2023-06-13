@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="top-right-buttons">
+    <button class="help-button">Help</button>
+    <button (click)="logout()" class="logout-button">Logout</button>
+  </div>
+  <div class="image-container">
+    <img src="../../../../assets/loginRegisterLogo.png" class="train-logo" />
+  </div>
+  <form (ngSubmit)="searchTrains()" #searchForm="ngForm" class="form-container">
+    <mat-form-field>
+      <mat-label>Source</mat-label>
+      <input matInput name="source" [(ngModel)]="source" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Destination</mat-label>
+      <input matInput name="destination" [(ngModel)]="destination" required>
+    </mat-form-field>
+
+    <div class="checkbox-container">
+      <label class="checkbox-label">
+        <input type="checkbox" name="tripType">
+        <span>Return Trip</span>
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" name="tripType">
+        <span>One Way</span>
+      </label>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Departure Date</mat-label>
+      <input matInput [matDatepicker]="picker" name="departureDate" [(ngModel)]="departureDate" required>
+      <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-icon>date_range</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!searchForm.form.valid" style="background-color: grey; color: white;">
+      Search
+    </button>
+  </form>
+  <div class="bottom-right-logo">
+    <img src="../../../../assets/logo.png" class="company-logo" />
+    <span class="company-name">Railway</span>
+  </div>
+</div>
+
+<div *ngIf="showPopup" class="popup-container">
+  <div class="popup-content">
+    <h3>Available Trains</h3>
+    <ul>
+      <li *ngFor="let train of trains">
+        Departure: {{ train.departure }}
+        Arrival: {{ train.arrival }}
+        From: {{ train.source }}
+        To: {{ train.destination }}
+      </li>
+    </ul>
+    <button (click)="closePopup()" class="close-button">Close</button>
+  </div>
+</div>

@@ -18,6 +18,7 @@ import {LoginModule} from "./modules/login/login.module";
 import {RegisterModule} from "./modules/register/register.module";
 import {MaterialModule} from "./material.module";
 import {HttpClientModule} from "@angular/common/http";
+import {DashboardModule} from "./modules/dashboard/dashboard.module";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {HttpClientModule} from "@angular/common/http";
     RegisterModule,
     MaterialModule,
     HttpClientModule,
+    DashboardModule
 
   ],
   providers: [AuthService, AuthGuard],
