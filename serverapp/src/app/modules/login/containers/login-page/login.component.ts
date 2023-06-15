@@ -43,7 +43,8 @@ export class LoginComponent {
         (response) => {
           console.log("User is logged in");
           sessionStorage.setItem('loggedUser', val.email);
-          localStorage.setItem('access_token', response.token);
+          localStorage.setItem('access_token', response.access_token);
+
           this.router.navigate(['/dashboard'], { replaceUrl: true });
         },
         (error) => {

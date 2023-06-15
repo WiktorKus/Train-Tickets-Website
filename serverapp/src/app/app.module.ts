@@ -1,24 +1,25 @@
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './modules/login/containers/login-page/login.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {AngularMaterialModule} from "./angular-material.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {RegisterComponent} from "./modules/register/containers/register-page/register.component";
 import {AuthService} from "./services/auth.service";
 import {AuthGuard} from "./services/auth-guard.service";
 import {LoginModule} from "./modules/login/login.module";
 import {RegisterModule} from "./modules/register/register.module";
 import {MaterialModule} from "./material.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {DashboardModule} from "./modules/dashboard/dashboard.module";
+import {AuthInterceptor} from "./interceptors/auth.interceptor";
+import {HelpModule} from "./modules/help/help.module";
+import {CartModule} from "./modules/cart/cart.module";
 
 @NgModule({
   declarations: [
@@ -40,10 +41,11 @@ import {DashboardModule} from "./modules/dashboard/dashboard.module";
     RegisterModule,
     MaterialModule,
     HttpClientModule,
-    DashboardModule
-
+    DashboardModule,
+    HelpModule,
+    CartModule,
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, AuthService, AuthGuard],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

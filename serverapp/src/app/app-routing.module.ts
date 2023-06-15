@@ -4,6 +4,8 @@ import { LoginComponent } from './modules/login/containers/login-page/login.comp
 import {RegisterComponent} from "./modules/register/containers";
 import {AuthGuard} from "./services";
 import {DashboardComponent} from "./modules/dashboard/containers";
+import {HelpComponent} from "./modules/help/containers/help-page/help.component";
+import {CartComponent} from "./modules/cart/containers";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -14,6 +16,16 @@ const routes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'help',
+    component: HelpComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate: [AuthGuard],
+  }
 
 ];
 

@@ -1,6 +1,7 @@
 <div class="container">
   <div class="top-right-buttons">
-    <button class="help-button">Help</button>
+    <button (click)="cart()" class="help-button">Cart</button>
+    <button (click)="help()" class="help-button">Help</button>
     <button (click)="logout()" class="logout-button">Logout</button>
   </div>
   <div class="image-container">
@@ -49,15 +50,68 @@
 
 <div *ngIf="showPopup" class="popup-container">
   <div class="popup-content">
-    <h3>Available Trains</h3>
-    <ul>
-      <li *ngFor="let train of trains">
-        Departure: {{ train.departure }}
-        Arrival: {{ train.arrival }}
-        From: {{ train.source }}
-        To: {{ train.destination }}
+    <h3 class="popup-title">Available Trains</h3>
+    <ul class="train-list">
+      <li *ngFor="let train of displayedTrains" class="train-item">
+        <div class="train-details">
+          <div class="departure-arrival">
+            <span class="label">Departure:</span>
+            <span class="value">{{ getFormattedDateTime(train.departureTime) }}</span>
+          </div>
+          <div class="departure-arrival">
+            <span class="label">Arrival:</span>
+            <span class="value">{{ getFormattedDateTime(train.arrivalTime) }}</span>
+          </div>
+          <div class="from-to">
+            <span class="label">From:</span>
+            <span class="value">{{ train.departureStation }}</span>
+          </div>
+          <div class="from-to">
+            <span class="label">To:</span>
+            <span class="value">{{ train.arrivalStation }}</span>
+          </div>
+          <div class="from-to">
+            <span class="label">Price:</span>
+            <span class="value">{{ train.price }}$</span>
+          </div>
+        </div>
+        <button
+          mat-raised-button
+          color="primary"
+          class="add-to-cart-button"
+          (click)="showAddTicketForm(train)"
+        >
+          Add to Cart
+        </button>
       </li>
     </ul>
-    <button (click)="closePopup()" class="close-button">Close</button>
+    <mat-paginator
+      [length]="trains.length"
+      [pageSize]="itemsPerPage"
+      (page)="changePage($event.pageIndex + 1)"
+    ></mat-paginator>
+    <button mat-icon-button class="close-button" (click)="closePopup()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div *ngIf="showAddTicketFormModal" class="form-container-cart">
+    <div class="add-ticket-form-content">
+      <h3 class="add-ticket-form-title">Add Ticket</h3>
+      <form (ngSubmit)="addTicket()" #addTicketForm="ngForm" class="add-ticket-form">
+        <mat-form-field>
+          <mat-label>Passenger Name</mat-label>
+          <input matInput name="passengerName" [(ngModel)]="passengerName" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Seat Number</mat-label>
+          <input matInput type="number" name="seatNumber" [(ngModel)]="seatNumber" required>
+        </mat-form-field>
+        <div class="add-ticket-form-buttons">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!addTicketForm.form.valid">Add</button>
+          <button mat-raised-button color="warn" (click)="cancelAddTicket()">Cancel</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
+

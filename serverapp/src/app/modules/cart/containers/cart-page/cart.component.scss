@@ -1,0 +1,122 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #234AB5 0%, #000000 100%);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.paginator {
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.back-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-title {
+  font-size: 50px;
+}
+
+.empty-tickets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #ffffff;
+}
+
+.no-tickets {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.cart-image {
+  width: 300px;
+  height: auto;
+  margin-right: 40px;
+}
+
+.cart-icon {
+  width: 100%;
+  height: auto;
+  filter: invert(100%);
+}
+
+.empty {
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+}
+
+.sub-empty {
+  font-size: 20px;
+  color: white;
+}
+
+.mat-card {
+  background-color: #F5F5F5;
+}
+
+.mat-card-content {
+  padding: 10px;
+}
+
+.mat-card-actions {
+  justify-content: flex-start;
+}
+
+.card-actions {
+  justify-content: flex-end;
+}
+
+.ticket-card-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-top: 20px;
+  justify-content: center;
+  text-align: center;
+}
+
+.ticket-card {
+  width: 100%;
+  justify-content: center;
+}

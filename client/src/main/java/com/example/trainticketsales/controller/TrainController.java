@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1")
 public class TrainController {
@@ -24,7 +22,6 @@ public class TrainController {
         this.trainRepository = trainRepository;
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/trains/search")
     public ResponseEntity<List<Train>> searchTrains(@RequestBody SearchCriteria searchCriteria) {
         String source = searchCriteria.getSource();
@@ -38,9 +35,7 @@ public class TrainController {
                 source, destination, departureDateTimeStart, departureDateTimeEnd);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Access-Control-Allow-Origin", "*");
-        headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-        headers.add("Access-Control-Allow-Headers", "Content-Type");
+        headers.add("Access-Control-Allow-Origin", "http://localhost:4200");
 
         return ResponseEntity.ok().headers(headers).body(trains);
     }

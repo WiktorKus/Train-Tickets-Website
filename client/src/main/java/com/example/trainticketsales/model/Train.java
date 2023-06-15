@@ -31,4 +31,7 @@ public class Train {
     @Column(name = "arrival_time", nullable = false)
     private LocalDateTime arrivalTime;
 
+    @Column(name = "price", nullable = false)
+    private Double price;
+
 }

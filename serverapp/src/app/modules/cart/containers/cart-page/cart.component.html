@@ -1,0 +1,39 @@
+<div class="container">
+  <button mat-raised-button class="back-button" (click)="goBack()">
+    <span class="button-text">Back</span>
+  </button>
+  <div class="header">
+    <div class="header-title">Your Cart</div>
+  </div>
+
+  <div *ngIf="tickets.length === 0" class="cart">
+    <div class="cart-image">
+      <img src="../../../../../assets/shopping-cart.png" alt="Shopping Cart" class="cart-icon" />
+    </div>
+    <div class="empty">
+      Your cart is currently empty
+    </div>
+    <div class="sub-empty">
+      Before proceeding to checkout, you must add some tickets to your cart.
+    </div>
+  </div>
+
+  <div *ngIf="tickets.length > 0" class="ticket-card-container">
+    <mat-card *ngFor="let ticket of tickets | slice: (pageIndex * pageSize): ((pageIndex + 1) * pageSize)" class="ticket-card">
+      <mat-card-content>
+        <p><strong>Passenger Name:</strong> {{ ticket.passengerName }}</p>
+        <p><strong>Seat Number:</strong> {{ ticket.seatNumber }}</p>
+        <p><strong>Departure Station:</strong> {{ ticket.departureStation }}</p>
+        <p><strong>Arrival Station:</strong> {{ ticket.arrivalStation }}</p>
+        <p><strong>Departure Time:</strong> {{ getFormattedDateTime(ticket.departureTime) }}</p>
+        <p><strong>Arrival Time:</strong> {{ getFormattedDateTime(ticket.arrivalTime) }}</p>
+      </mat-card-content>
+      <mat-card-actions class="card-actions">
+        <button mat-button color="primary" (click)="modifyTicket(ticket)">Modify</button>
+        <button mat-button color="warn" (click)="removeTicket(ticket)">Remove</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-paginator [length]="tickets.length" [pageSize]="pageSize" (page)="onPageChange($event)" class="paginator"></mat-paginator>
+  </div>
+</div>

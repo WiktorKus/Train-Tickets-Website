@@ -1,10 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-/*
-import { registration.model.ts } from '../models';
-*/
-import { BaseHttpService } from './base-http.service';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {BaseHttpService} from './base-http.service';
 import {RegistrationModel} from "../models";
 
 @Injectable({

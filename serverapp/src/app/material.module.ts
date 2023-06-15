@@ -13,6 +13,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from "@angular/material/card";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 
 const MODULES = [
@@ -20,7 +22,7 @@ const MODULES = [
   MatToolbarModule, MatTableModule, MatDialogModule,
   MatFormFieldModule, MatInputModule, MatSnackBarModule,
   MatFormFieldModule, MatFormFieldModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule,
-  MatTabsModule, MatCardModule
+  MatTabsModule, MatCardModule, MatPaginatorModule, MatSidenavModule
 ];
 
 @NgModule({

@@ -100,33 +100,36 @@ button[type="submit"] {
   font-size: 16px;
 }
 
-.top-right-buttons {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
 .help-button,
 .logout-button {
-  background-color: Grey;
+  background-color: transparent;
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 12px 20px;
   border-radius: 4px;
-  margin-le50ft: 10px;
-  cursor: pointer;
   margin-left: 10px;
-  width: 100px;
+  width: 120px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .help-button:hover,
 .logout-button:hover {
-  background-color: #000000;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .help-button:focus,
 .logout-button:focus {
   outline: none;
+}
+
+.top-right-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .image-small {
@@ -143,15 +146,130 @@ button[type="submit"] {
   align-items: center;
 }
 
-.company-logo {
-  width: 40px;
-  height: auto;
-  margin-right: 10px;
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.company-name {
+.popup-content {
+  width: 400px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-title {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.train-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.train-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 16px;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+}
+
+.train-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.departure-arrival {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+
+  .label {
+    margin-right: 8px;
+    font-weight: 600;
+  }
+}
+
+.from-to {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+
+  .label {
+    margin-right: 8px;
+    font-weight: 600;
+  }
+}
+
+.add-to-cart-button {
+  background-color: #FFFFFF;
   color: #FFFFFF;
-  font-size: 25px;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: lighten(#FFFFFF, 10%);
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.success-snackbar {
+  background-color: #FFFFFF;
+  color: #FFFFFF;
+}
+
+.form-container-cart {
+  margin-left: 20px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.add-ticket-form-buttons {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.add-ticket-form-title {
+  text-align: center;
+}
+
+.add-ticket-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 400px;
+  padding: 20px;
+  background: white;
+  border-radius: 25px;
 }
 
 

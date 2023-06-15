@@ -16,7 +16,7 @@ public class Ticket {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "train_id", nullable = false)
     private Train train;
 
